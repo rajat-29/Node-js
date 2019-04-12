@@ -24,6 +24,7 @@ btn.addEventListener("click", function () {
 });
 
 getFile1.addEventListener("click", function () {
+	taskList.innerHTML = "";
 	var request = new XMLHttpRequest();
 	request.open("GET", "/1.txt");
 	request.addEventListener("load", function () {
@@ -42,9 +43,11 @@ getFile1.addEventListener("click", function () {
 		}
 	});
 	request.send();
+	
 });
 
 getFile2.addEventListener("click", function () {
+	taskList.innerHTML = "";
 	var request = new XMLHttpRequest();
 	request.open("GET", "/2.txt");
 	request.addEventListener("load", function () {
@@ -66,6 +69,7 @@ getFile2.addEventListener("click", function () {
 });
 
 getFile3.addEventListener("click", function () {
+	taskList.innerHTML = "";
 	var request = new XMLHttpRequest();
 	request.open("GET", "/3.txt");
 	request.addEventListener("load", function () {
