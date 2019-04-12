@@ -1,1 +1,0 @@
-input data from user and saving it to 3 different files
