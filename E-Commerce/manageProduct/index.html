@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>To-Do List</title>
+	<style>
+		html {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			  background: #a8c0ff; 
+  background: -webkit-linear-gradient(to bottom, #3f2b96, #a8c0ff);  
+  background: linear-gradient(to bottom, #3f2b96, #a8c0ff);
+		}
+		select,input, button {
+			padding: 10px;
+			margin: 20px;
+		}
+		button {
+			width: 150px;
+			height: 40px;
+			border-radius: 5px;
+			outline: none;
+			cursor: pointer;
+			position: relative;
+			top: 5px;
+		}
+		div {
+			text-align: center;
+		}
+	</style>
+</head>
+<body onload="load()">
+	<div>		
+		<input type="text" placeholder="Enter your task" id="task">
+	
+		<br>
+		<button id="btn">Submit</button>
+		<br>
+		<button id="del">Delete</button>
+	</div>
+	<div>
+		<ul id="task-list">
+			
+		</ul>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
