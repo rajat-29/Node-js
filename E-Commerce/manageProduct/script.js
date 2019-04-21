@@ -7,26 +7,24 @@ var products = [];
  var opened=0;
 
 function load()	{				// Onload Function
-	
-	var request = new XMLHttpRequest();
-    request.addEventListener('load', function() 
+	console.log('hi')
+
+	var request1 = new XMLHttpRequest();
+  	request1.open('GET', '/1.txt');
+    request1.addEventListener('load', function() 
     {
-      if (request.status === STATUS_OK) {
-          var tempLogin =[];
-          products= JSON.parse(request.responseText);
-          if(tempLogin!=null)
-          {
-			
+    		console.log('ra')
+      if (request1.status === STATUS_OK) {    
+          products= JSON.parse(request1.responseText);
 			for(var i=0;i<products.length;i++)
 			{
 				addProducttoDOM(products[i]);
-			}
-			productId=products.length+1;
-		}
+			}		
       } 
      });
-    request.open('GET', '/1.txt');
-    request.send();
+  	
+    request1.send();
+
 }
 
 function addProducttoArray() {
@@ -52,11 +50,23 @@ function addProducttoArray() {
 function addProducttoDOM(objProduct) {
 	var p = document.createElement("p");
 	var li = document.createElement("li");
+	var btn = document.createElement("button");
 	p.innerHTML = objProduct.task;
+	btn.innerHTML = 'X';
 	li.appendChild(p);
+	li.appendChild(btn);
 	ul.appendChild(li);
-}
+	btn.addEventListener("click", function() {
+	
+		var request = new XMLHttpRequest();
+		request.open("DELETE", '/1.txt');
+		request.send(JSON.stringify(objProduct));		
+		
+		console.log("delete");
+		load();
+	})
 
+}
 
 btn.addEventListener("click", function() {
 	addProducttoArray();
